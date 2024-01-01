@@ -1,0 +1,6 @@
+es:
+  bank:
+    index:
+      title: 'Bancos'
+      show: 'Mostrar este banco'
+      new: 'Nuevo banco'
