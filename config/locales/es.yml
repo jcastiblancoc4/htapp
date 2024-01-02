@@ -1,6 +1,11 @@
 es:
   bank:
+    name: 'Nombre'
+    error_save: "impidio guardar este banco"
     index:
       title: 'Bancos'
       show: 'Mostrar este banco'
       new: 'Nuevo banco'
+    model:
+      validate_empty: 'dato es requerido'
+      validate_size: 'maximo 50 caracteres'

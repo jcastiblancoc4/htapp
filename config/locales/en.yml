@@ -1,7 +1,11 @@
 en:
   bank:
+    name: 'name'
+    error_save: "prevented me from saving this bank"
     index:
       title: 'Banks'
       show: 'Show this bank'
       new: 'New'
-
+    model:
+      validate_empty: 'data is required'
+      validate_size: 'maximum 50 characters'

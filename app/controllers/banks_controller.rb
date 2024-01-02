@@ -26,10 +26,8 @@ class BanksController < ApplicationController
     respond_to do |format|
       if @bank.save
         format.html { redirect_to bank_url(@bank), notice: "Bank was successfully created." }
-        format.json { render :show, status: :created, location: @bank }
       else
         format.html { render :new, status: :unprocessable_entity }
-        # format.json { render json: @bank.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,10 +37,10 @@ class BanksController < ApplicationController
     respond_to do |format|
       if @bank.update(bank_params)
         format.html { redirect_to bank_url(@bank), notice: "Bank was successfully updated." }
-        format.json { render :show, status: :ok, location: @bank }
+
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @bank.errors, status: :unprocessable_entity }
+
       end
     end
   end
@@ -53,7 +51,7 @@ class BanksController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to banks_url, notice: "Bank was successfully destroyed." }
-      format.json { head :no_content }
+
     end
   end
 
