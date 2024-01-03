@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_30_165508) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_03_041544) do
+  create_table "bank_accouns", force: :cascade do |t|
+    t.string "number"
+    t.integer "bank_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bank_id"], name: "index_bank_accouns_on_bank_id"
+  end
+
   create_table "banks", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "suppliers", force: :cascade do |t|
+    t.string "name"
+    t.string "nit"
+    t.string "name_person_contact"
+    t.string "phone_person_contact"
+    t.integer "accoun_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["accoun_id"], name: "index_suppliers_on_accoun_id"
+  end
+
+  add_foreign_key "bank_accouns", "banks"
+  add_foreign_key "suppliers", "bank_accouns", column: "accoun_id"
 end
