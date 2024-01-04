@@ -1,0 +1,24 @@
+<h1>REGISTRAR PROVEEDOR Y CUENTA BANCARIA</h1>
+
+<%#= render "form", bank: @bank %>
+
+<%= form_for @supplier,  url: {controller: "supplier",  action: "create"} do |f| %>
+  <%= f.label :nombre, style: "display: block" %>
+  <%= f.text_field :name %>
+  <%= f.label :nit, style: "display: block" %>
+  <%= f.text_field :nit %>
+  <%= f.label "persona de contacto", style: "display: block" %>
+  <%= f.text_field :name_person_contact %>
+  <%= f.label "celular persona de contacto", style: "display: block" %>
+  <%= f.text_field :phone_person_contact %>
+  <%= f.fields_for :accoun, Bank::Accoun.new do |accoun_form| %>
+    <%= accoun_form.label "numero de cuenta", style: "display: block" %>
+    <%= accoun_form.text_field :number %>
+    <%= accoun_form.label "Banco", style: "display: block" %>
+    <%= accoun_form.text_field :bank_id %>
+    <% end %>
+  <%= f.submit "Registrarte", class: " text-sm text-center bg-blue-300 text-white py-1 rounded font-medium" %>
+
+<% end %>
+
+

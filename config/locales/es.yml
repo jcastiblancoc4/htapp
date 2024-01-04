@@ -9,3 +9,6 @@ es:
     model:
       validate_empty: 'dato es requerido'
       validate_size: 'maximo 50 caracteres'
+  supplier:
+    model:
+      validate_empty: 'dato es requerido'

@@ -9,3 +9,6 @@ en:
     model:
       validate_empty: 'data is required'
       validate_size: 'maximum 50 characters'
+  supplier:
+    model:
+      validate_empty: 'data is required'
