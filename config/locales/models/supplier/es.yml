@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    errors:
+      models:
+        supplier:
+          attributes:
+            nit:
+              valid_nit: nit invalido

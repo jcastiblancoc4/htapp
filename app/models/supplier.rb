@@ -6,5 +6,8 @@ class Supplier < ApplicationRecord
 
   validates :name, :name_person_contact, presence: { message: I18n.t("supplier.model.validate_empty")}
   validates :phone_person_contact, presence: false, length: { maximum: 10 }
+  validates :nit, :'supplier/valid_nit' => true
+
+
 
 end

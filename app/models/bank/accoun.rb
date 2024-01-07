@@ -4,4 +4,5 @@ class Bank::Accoun < ApplicationRecord
   belongs_to :bank, class_name: Bank.name
   has_one :supplier, class_name: Supplier.name
 
+  validates :number, presence: false, length: { maximum: 15 }
 end
