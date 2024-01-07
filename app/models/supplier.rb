@@ -8,6 +8,4 @@ class Supplier < ApplicationRecord
   validates :phone_person_contact, presence: false, length: { maximum: 10 }
   validates :nit, :'supplier/valid_nit' => true
 
-
-
 end
