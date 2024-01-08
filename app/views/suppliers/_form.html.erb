@@ -1,32 +1,38 @@
 <%= form_with(model: supplier) do |f| %>
-  <% if supplier.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(supplier.errors.count, "error")  %> <%= I18n.t("bank.error_save") %> </h2>
-      <ul>
-        <% supplier.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.label :nombre, style: "display: block" %>
+  <%= f.label I18n.t("supplier.model.attributes.name"), style: "display: block" %>
   <%= f.text_field :name %>
-  <span class="flex items-center font-medium tracking-wide text-red-500 text-xs ml-1 mb-4">
-   <% supplier.errors[:name].any? ? @profile.errors[:name].to_s[/\w([^"]*)/] : "" %>
-    </span>
+  <span class="flex items-center font-medium tracking-wide text-red-500 text-xs ml-1 mb-4"  style="color: red">
+   <%= supplier.errors[:name].any? ? supplier.errors[:name].to_s[/\w([^"]*)/] : "" %>
+  </span>
   <%= f.label :nit, style: "display: block" %>
-  <%= f.text_field :nit %>
+  <%= f.text_field :nit, :value => nil %>
+  <span class="flex items-center font-medium tracking-wide text-red-500 text-xs ml-1 mb-4" style="color: red">
+    <%= supplier.errors[:nit].any? ? supplier.errors[:nit].to_s[/\w([^"]*)/] : ""  %>
+  </span>
   <%= f.label "persona de contacto", style: "display: block" %>
   <%= f.text_field :name_person_contact %>
+  <span class="flex items-center font-medium tracking-wide text-red-500 text-xs ml-1 mb-4"  style="color: red">
+   <%= supplier.errors[:name_person_contact].any? ? supplier.errors[:name_person_contact].to_s[/\w([^"]*)/] : "" %>
+  </span>
   <%= f.label "celular persona de contacto", style: "display: block" %>
   <%= f.text_field :phone_person_contact %>
-  <%= f.fields_for :accoun, Bank::Accoun.new do |accoun_form| %>
+  <span class="flex items-center font-medium tracking-wide text-red-500 text-xs ml-1 mb-4"  style="color: red">
+   <%= supplier.errors[:phone_person_contact].any? ? supplier.errors[:phone_person_contact].to_s[/\w([^"]*)/] : "" %>
+  </span>
+  <%= f.fields_for :accoun, supplier.accoun do |accoun_form| %>
     <%= accoun_form.label "numero de cuenta", style: "display: block" %>
     <%= accoun_form.text_field :number %>
+    <span class="flex items-center font-medium tracking-wide text-red-500 text-xs ml-1 mb-4"  style="color: red">
+    <%= supplier.accoun.errors[:number].any? ? supplier.accoun.errors[:number].to_s[/\w([^"]*)/] : "" %>
+    </span>
     <%= accoun_form.label "Banco", style: "display: block" %>
-    <%= accoun_form.text_field :bank_id %>
+    <%=accoun_form.select :bank_id,  options_from_collection_for_select(banks, "id", "name"),
+                          include_blank: 'Selecciona una opción' %>
+    <span class="flex items-center font-medium tracking-wide text-red-500 text-xs ml-1 mb-4"  style="color: red">
+    <%= supplier.accoun.errors[:bank].any? ? supplier.accoun.errors[:bank].to_s[/\w([^"]*)/] : "" %>
+    </span>
+
   <% end %>
-  <%= f.submit "Registrarte", class: " text-sm text-center bg-blue-300 text-white py-1 rounded font-medium" %>
+  <%= f.submit class: " text-sm text-center bg-blue-300 text-white py-1 rounded font-medium" %>
 
 <% end %>

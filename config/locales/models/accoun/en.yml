@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    errors:
+      models:
+        bank/accoun:
+          attributes:
+            bank:
+              required: "Select a bank"
+            number:
+              too_long: "Invalid account number, must have a maximum of 15 characters"
+

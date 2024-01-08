@@ -5,4 +5,6 @@ es:
         supplier:
           attributes:
             nit:
-              valid_nit: nit invalido
+              valid_nit: "Nit invalido, debe tener 9 dígitos un guión medio (-) y un dígito"
+            phone_person_contact:
+              too_long: "Numero de telefono invalido, debe tener maximo 10 caracteres"

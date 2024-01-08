@@ -1,6 +1,6 @@
 class BanksController < ApplicationController
-  before_action :set_bank, only: %i[ show edit update destroy ]
-  before_action :set_locale!
+  before_action :set_bank, only: %i[ show edit update destroy]
+  before_action :set_locale!, only: %i[show edit update destroy]
 
   def set_locale!
     I18n.locale = :es

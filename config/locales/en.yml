@@ -11,4 +11,7 @@ en:
       validate_size: 'maximum 50 characters'
   supplier:
     model:
-      validate_empty: 'data is required'
+      attributes:
+        name: "provider's name"
+      validate_empty_name: 'Enter the provider name'
+      validate_empty_name_person_contact: 'Enter the name of the contact person'

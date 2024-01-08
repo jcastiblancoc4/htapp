@@ -5,4 +5,6 @@ en:
         supplier:
           attributes:
             nit:
-              valid_nit: invalid nit
+              valid_nit: "invalid nit"
+            phone_person_contact:
+              too_long: "Invalid phone number, must have a maximum of 10 characters"

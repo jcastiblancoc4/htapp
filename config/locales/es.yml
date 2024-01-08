@@ -11,4 +11,7 @@ es:
       validate_size: 'maximo 50 caracteres'
   supplier:
     model:
-      validate_empty: 'dato es requerido'
+      attributes:
+        name: "Nombre del proveedor"
+      validate_empty_name: 'Ingrese el nombre del proveedor'
+      validate_empty_name_person_contact: 'Ingrese el nombre de la persona de contacto'
